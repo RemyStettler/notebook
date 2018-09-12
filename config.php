@@ -25,5 +25,4 @@ return array(
         'password' => '123',
         'database' => 'logins',
     ),
-
 );
