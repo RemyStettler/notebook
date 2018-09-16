@@ -21,8 +21,8 @@ return array(
     // Datebankkonfiguration
     'database' => array(
         'host'     => 'localhost:3307',
-        'username' => 'remy',
-        'password' => '123',
-        'database' => 'logins',
+        'username' => 'phpuser',
+        'password' => '1234',
+        'database' => 'user',
     ),
 );

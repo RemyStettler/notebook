@@ -3,6 +3,8 @@
 /**
  * Siehe Dokumentation im DefaultController.
  */
+require_once '../lib/login-check.php';
+
 class UserController
 {
     public function index()
@@ -13,9 +15,23 @@ class UserController
 
     public function create()
     {
-        $view = new View('login_form');
+        $view = new View('default_index');
         $view->title = 'Login';
         $view->heading = 'Login';
         $view->display();
+    }
+
+    public function anmelden()
+    {
+      $check = new LoginCheck();
+      if($check->Login()){
+          $view = new View('uebersicht');
+          $view->title = 'Login';
+          $view->heading = 'Login';
+          $view->display();
+      }
+      else{
+        die ("nicht ok");
+}
     }
 }

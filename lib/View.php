@@ -44,7 +44,7 @@
  * Verfügung. Diese können in den Viewfiles wie folgt ausgegeben werden.
  *
  *   <!-- Einzelne Variable ausgeben -->
- *   <title><?= $title; ?> | Bbc MVC</title>
+ *   <title><?= $title; ?> | Notebook</title>
  *
  *   <!-- Über ein Array iterieren und mit den Elementen eine Liste erstellen -->
  *   <ul>
