@@ -5,7 +5,9 @@ class LoginCheck
 {
     public function Login()
     {
-        if(!isset($_POST['benutzername']) || !isset($_POST['password'])){
+
+        if(!isset($_POST['benutzername']) || !isset($_POST['password']))
+        {
             die("permission denied");
         }
 
@@ -15,7 +17,7 @@ class LoginCheck
         }
 
         $connection->set_charset("utf8");
-        $query = "SELECT benutzername, password FROM user WHERE benutzername = ? AND password = ?";
+        $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ? AND password = ?";
         $benutzername = htmlspecialchars($_POST ['benutzername']);
         $password = htmlspecialchars($_POST ['password']);
 
@@ -24,16 +26,20 @@ class LoginCheck
         $statement->execute();
         $result = $statement->get_result();
 
-        if($result->num_rows == 1){
+        if($result->num_rows == 1)
+        {
+            session_start();
             $row = $result->fetch_object();
-            $_SESSION ['benutzername'] = $benutzername;
-            $_SESSION ['loggedin'] = true;
+            $_SESSION['benutzername'] = $benutzername;
+            $_SESSION['loggedin'] = true;
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
+      }
     }
-}
+
 
 ?>

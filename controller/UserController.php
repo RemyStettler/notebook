@@ -34,4 +34,11 @@ class UserController
         die ("nicht ok");
       }
     }
+
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        header('Location: /');
+    }
 }
