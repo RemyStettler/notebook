@@ -2,7 +2,7 @@
 
   <div id="textfeld">
     <label for="text"><b>Eure Notizen:<b></label>
-      <input type="text" name="notizen" placeholder="Write something...">
+      <textarea id="notizfeld" name="text" rows="8" cols="80" placeholder="Write something..."></textarea>
 
       <button type="submit" name="Speichern">Speichern</button>
   </div>
