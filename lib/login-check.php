@@ -16,8 +16,8 @@ class LoginCheck
 
         $connection->set_charset("utf8");
         $query = "SELECT benutzername, password FROM user WHERE benutzername = ? AND password = ?";
-        +$benutzername = htmlspecialchars($_POST ['benutzername']);
-        +$password = htmlspecialchars($_POST ['password']);
+        $benutzername = htmlspecialchars($_POST ['benutzername']);
+        $password = htmlspecialchars($_POST ['password']);
 
         $statement = $connection->prepare($query);
         $statement->bind_param("ss", $benutzername, $password);

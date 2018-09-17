@@ -26,12 +26,12 @@ class UserController
       $check = new LoginCheck();
       if($check->Login()){
           $view = new View('uebersicht');
-          $view->title = 'Login';
-          $view->heading = 'Login';
+          $view->title = 'Übersicht';
+          $view->heading = 'Übersicht';
           $view->display();
       }
       else{
         die ("nicht ok");
-}
+      }
     }
 }

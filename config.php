@@ -20,9 +20,9 @@ return array(
 
     // Datebankkonfiguration
     'database' => array(
-        'host'     => 'localhost:3307',
+        'host'     => 'localhost',
         'username' => 'phpuser',
         'password' => '1234',
-        'database' => 'user',
+        'database' => 'logins',
     ),
 );

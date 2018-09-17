@@ -22,6 +22,6 @@
   </head>
   <body>
     <div id="mitte">
-      <h1>Notebook Login</h1>
+      <h1>Notebook</h1>
     </div>
     <div class="container">
