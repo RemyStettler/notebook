@@ -35,15 +35,46 @@ class NotizRepository extends Repository
        return $statement->insert_id;
      }
 
-     public function select()
+     public function showall()
      {
-       //$query = "SELECT notiz FROM $this->tableName WHERE benutzername = $_SESSION['benutzername']";
+       session_start();
+       $benutzername = $_SESSION['benutzername'];
+       $query = "SELECT notiz FROM $this->tableName WHERE benutzername = ?";
 
        $statement = ConnectionHandler::getConnection()->prepare($query);
+       $statement->bind_param('s', $benutzername);
+
+       if(!$statement->execute())
+       {
+         throw new Exception($statement->error);
+       }
+
+       //var_dump($statement); exit;
+
+       return $statement;
 
        // id(!$statement->execute())
        // {
        //   throw new Exception($statement->error);
        // }
+     }
+
+     public function loeschen()
+     {
+       session_start();
+       $benutzername = $_SESSION['benutzername'];
+       $query = "DELETE notiz FROM $this->tableName WHERE benutzername = ?";
+
+       $statement = ConnectionHandler::getConnection()->prepare($query);
+       $statement->bind_param('s', $benutzername);
+
+       var_dump($statement); exit;
+
+       if(!$statement->execute())
+       {
+         throw new Exception($statement->error);
+       }
+
+       return $statement->insert_id;
      }
 }

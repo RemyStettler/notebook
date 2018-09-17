@@ -4,6 +4,7 @@
  * Siehe Dokumentation im DefaultController.
  */
 require_once '../lib/login-check.php';
+require_once '../repository/NotizRepository.php';
 
 class UserController
 {
@@ -24,11 +25,15 @@ class UserController
     public function anmelden()
     {
       $check = new LoginCheck();
-      if($check->Login()){
-          $view = new View('uebersicht');
-          $view->title = 'Übersicht';
-          $view->heading = 'Übersicht';
-          $view->display();
+      if($check->Login())
+      {
+        //$notizrep = new NotizRepository();
+        //$allenotizen = $notizrep->showall();
+        $view = new View('uebersicht');
+        //$view->allenotizen = $allenotizen;
+        $view->title = 'Übersicht';
+        $view->heading = 'Übersicht';
+        $view->display();
       }
       else{
         die ("nicht ok");
