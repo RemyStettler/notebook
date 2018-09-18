@@ -16,7 +16,7 @@ class UserController
 
     public function create()
     {
-        $view = new View('default_index');
+        $view = new View('default_index'); //Weiterleitung auf die Homeseite.
         $view->title = 'Login';
         $view->heading = 'Login';
         $view->display();

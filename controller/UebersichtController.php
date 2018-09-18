@@ -3,15 +3,11 @@ require_once '../repository/NotizRepository.php';
 
   class UebersichtController
   {
-    public function speichern()
+    public function index()
     {
-
-      session_start();
-      $notiz = new NotizRepository();
-      $notiz->insert(htmlspecialchars($_POST['text'])); //Führt die Speicherung der Datensätze durch.
-      $allenotizen = $notiz->readAll();
-
       //Leitet die Seite wieder zur aktualisierten Übersicht.
+      $notiz = new NotizRepository();
+      $allenotizen = $notiz->readAll();
       $view = new View('uebersicht');
       $view->allenotizen = $allenotizen;
       $view->title = 'Übersicht';
@@ -19,18 +15,22 @@ require_once '../repository/NotizRepository.php';
       $view->display();
     }
 
+    public function speichern()
+    {
+      session_start();
+      $notiz = new NotizRepository();
+      $notiz->insert(htmlspecialchars($_POST['text'])); //Führt die Speicherung der Datensätze durch.
+
+      header('Location: /uebersicht');
+    }
+
     public function loeschen()
     {
       $notiz = new NotizRepository();
       $notiz->loeschen(); //Führt das Löschen der Datensätze durch.
-      $allenotizen = $notiz->readAll();
 
       //Leitet die Seite wieder zur aktualisierten Übersicht.
-      $view = new View('uebersicht');
-      $view->allenotizen = $allenotizen;
-      $view->title = 'Übersicht';
-      $view->heading = 'Übersicht';
-      $view->display();
+      header('Location: /uebersicht');
     }
   }
 
