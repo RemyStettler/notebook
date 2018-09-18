@@ -27,10 +27,10 @@ class UserController
       $check = new LoginCheck();
       if($check->Login())
       {
-        //$notizrep = new NotizRepository();
-        //$allenotizen = $notizrep->showall();
+        $notizrep = new NotizRepository();
+        $allenotizen = $notizrep->readAll();
         $view = new View('uebersicht');
-        //$view->allenotizen = $allenotizen;
+        $view->allenotizen = $allenotizen;
         $view->title = 'Übersicht';
         $view->heading = 'Übersicht';
         $view->display();

@@ -37,24 +37,28 @@ class NotizRepository extends Repository
        return $statement->insert_id;
      }
 
-     public function showall()
-     {
-       session_start();
-       $benutzername = $_SESSION['benutzername'];
-       $query = "SELECT notiz FROM $this->tableName WHERE benutzername = ?";
+     public function readAll()
+         {
+           if(!isset($_SESSION)){
+             session_start();
+           }
 
-       $statement = ConnectionHandler::getConnection()->prepare($query);
-       $statement->bind_param('s', $benutzername);
-
-       if(!$statement->execute())
-       {
-         throw new Exception($statement->error);
-       }
-
-       //var_dump($statement); exit;
-
-       return $statement;
-     }
+            $benutzername = $_SESSION['benutzername'];
+            $query = "SELECT notiz FROM $this->tableName WHERE benutzername = ?";
+            $statement = ConnectionHandler::getConnection()->prepare($query);
+            $statement->bind_param('s', $benutzername);
+            $statement->execute();
+            $result = $statement->get_result();
+            if (!$result) {
+               throw new Exception($statement->error);
+            }
+            // Datensätze aus dem Resultat holen und in das Array $rows speichern
+            $rows = array();
+            while ($row = $result->fetch_object()) {
+               $rows[] = $row;
+            }
+            return $rows;
+         }
 
      public function loeschen()
      {

@@ -7,11 +7,10 @@ require_once '../repository/NotizRepository.php';
     {
       session_start();
       $notiz = new NotizRepository();
-      //var_dump($_SESSION['benutzername']); exit;
       $notiz->insert($_POST['text']);
-      //$allenotizen = $notiz->showall();
+      $allenotizen = $notiz->readAll();
       $view = new View('uebersicht');
-      //$view->allenotizen = $allenotizen;
+      $view->allenotizen = $allenotizen;
       $view->title = 'Übersicht';
       $view->heading = 'Übersicht';
       $view->display();
@@ -21,7 +20,10 @@ require_once '../repository/NotizRepository.php';
     {
       $notiz = new NotizRepository();
       $notiz->loeschen();
+      $allenotizen = $notiz->readAll();
+      //var_dump($allenotizen); exit;
       $view = new View('uebersicht');
+      $view->allenotizen = $allenotizen;
       $view->title = 'Übersicht';
       $view->heading = 'Übersicht';
       $view->display();
