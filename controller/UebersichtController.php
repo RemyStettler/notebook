@@ -5,7 +5,7 @@ require_once '../repository/NotizRepository.php';
   {
     public function speichern()
     {
-      //session_start();
+      session_start();
       $notiz = new NotizRepository();
       //var_dump($_SESSION['benutzername']); exit;
       $notiz->insert($_POST['text']);

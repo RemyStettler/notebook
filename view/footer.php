@@ -1,6 +1,6 @@
         <hr>
         <footer>
-          <p>&copy; by Remy & Raffaele</p>
+          <p>Made by Remy and Raffaele for school purposes</p>
         </footer>
     </div>
 

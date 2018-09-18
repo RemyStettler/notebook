@@ -7,10 +7,11 @@
 <form action="/uebersicht/speichern" method="post">
   <div class="textfeld">
     <label for="text"><b>Eure Notizen:<b></label>
-      <textarea class="notizfeld" name="text" rows="8" cols="80" placeholder="Write something..."></textarea>
+      <textarea required class="notizfeld" name="text" rows="8" cols="80" placeholder="Write something..."></textarea>
 
       <button type="submit" name="Speichern">Speichern</button>
   </div>
+</form>
 
   <form action="/uebersicht/loeschen" method="post">
     <div class="textfeld">
@@ -19,4 +20,3 @@
           <button type="submit" name="Löschen">Alle Notizen Löschen</button>
     </div>
   </form>
-</form>

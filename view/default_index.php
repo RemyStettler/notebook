@@ -1,4 +1,6 @@
-<h2>Login</h2>
+<div class="mitte">
+	<h2>Login</h2>
+</div>
 <form action="/user/anmelden" method="post">
 
 	<div id="logincontainer">

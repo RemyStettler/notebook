@@ -20,7 +20,9 @@ class NotizRepository extends Repository
      */
      public function insert($notiz)
      {
-       session_start();
+       if(!isset($_SESSION)){
+         session_start();
+       }
        $benutzername = $_SESSION['benutzername'];
        $query = "INSERT INTO $this->tableName (benutzername, notiz) VALUES (?, ?)";
 
@@ -52,23 +54,18 @@ class NotizRepository extends Repository
        //var_dump($statement); exit;
 
        return $statement;
-
-       // id(!$statement->execute())
-       // {
-       //   throw new Exception($statement->error);
-       // }
      }
 
      public function loeschen()
      {
        session_start();
        $benutzername = $_SESSION['benutzername'];
-       $query = "DELETE notiz FROM $this->tableName WHERE benutzername = ?";
+       $query = "DELETE FROM $this->tableName WHERE benutzername = ?";
 
        $statement = ConnectionHandler::getConnection()->prepare($query);
        $statement->bind_param('s', $benutzername);
 
-       var_dump($statement); exit;
+       //var_dump($statement); exit;
 
        if(!$statement->execute())
        {

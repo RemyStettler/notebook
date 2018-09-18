@@ -21,7 +21,7 @@
     <![endif]-->
   </head>
   <body>
-    <div id="mitte">
+    <div class="mitte">
       <h1>Notebook</h1>
     </div>
     <div class="container">
