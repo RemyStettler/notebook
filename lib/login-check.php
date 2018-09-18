@@ -5,19 +5,25 @@ class LoginCheck
 {
     public function Login()
     {
+        //Diese Methode kontrolliert, ob die eingegebenen Daten, mit einem Login in der Datenbank übereinstimmt.
 
         if(!isset($_POST['benutzername']) || !isset($_POST['password']))
         {
             die("permission denied");
         }
 
+         //Stellt Verbindung zur Datenbank her.
         $connection = ConnectionHandler::getConnection();
         if($connection->connect_error){
             echo "Verbindungsfehler: $connection->connect_error";
         }
 
         $connection->set_charset("utf8");
+
+        //Dies ist die SQL Abfrage, die die eingegebenen Benutzerdaten und die bestehenden Benutzerdaten vergleicht.
         $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ? AND password = ?";
+
+        //htmlspecialchars schützt vor jeglichen Angriffen.
         $benutzername = htmlspecialchars($_POST ['benutzername']);
         $password = htmlspecialchars(sha1($_POST ['password']));
 
@@ -26,6 +32,7 @@ class LoginCheck
         $statement->execute();
         $result = $statement->get_result();
 
+        //Wenn es in der Abfrage eine übereinstimmende Eingabe hat, wird man eingeloggt.
         if($result->num_rows == 1)
         {
             session_start();

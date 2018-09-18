@@ -16,13 +16,15 @@
   <form action="/uebersicht/loeschen" method="post">
     <div class="textfeld">
       <label for="erstelltenotizen"><b>Erstellte Notizen:<b></label>
-        <!-- <textarea readonly class="notizfeld" name="erstelltenotizen" rows="8" cols="80"><?php //echo $allenotizen ?></textarea> -->
         <table>
           <?php
             foreach ($allenotizen as $notiz)
             {
               echo "<tr>";
               echo "<td>".$notiz->notiz."</td>";
+              echo "</tr>";
+              echo "<tr>";
+              echo "<td>----------</td>";
               echo "</tr>";
             }
            ?>

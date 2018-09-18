@@ -5,10 +5,13 @@ require_once '../repository/NotizRepository.php';
   {
     public function speichern()
     {
+
       session_start();
       $notiz = new NotizRepository();
-      $notiz->insert($_POST['text']);
+      $notiz->insert(htmlspecialchars($_POST['text'])); //Führt die Speicherung der Datensätze durch.
       $allenotizen = $notiz->readAll();
+
+      //Leitet die Seite wieder zur aktualisierten Übersicht.
       $view = new View('uebersicht');
       $view->allenotizen = $allenotizen;
       $view->title = 'Übersicht';
@@ -19,9 +22,10 @@ require_once '../repository/NotizRepository.php';
     public function loeschen()
     {
       $notiz = new NotizRepository();
-      $notiz->loeschen();
+      $notiz->loeschen(); //Führt das Löschen der Datensätze durch.
       $allenotizen = $notiz->readAll();
-      //var_dump($allenotizen); exit;
+
+      //Leitet die Seite wieder zur aktualisierten Übersicht.
       $view = new View('uebersicht');
       $view->allenotizen = $allenotizen;
       $view->title = 'Übersicht';
