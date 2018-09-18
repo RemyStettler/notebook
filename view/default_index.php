@@ -11,5 +11,12 @@
 		<input type="password" placeholder="Enter Password" name="password" required>
 
 		<button name="Anmelden" type="submit">Login</button>
+
+		<?php
+			if(isset($_GET['error']) == true)
+			{
+				echo "<p>Your Password or Username is invalid.<p>";
+			}
+		 ?>
 	</div>
 </form>

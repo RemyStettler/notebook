@@ -21,6 +21,10 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
+#logincontainer p{
+  color: red;
+}
+
 /* Set a style for all buttons */
 button {
     background-color: #6DD5FF;

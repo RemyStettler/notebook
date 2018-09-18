@@ -36,7 +36,7 @@ class UserController
         $view->display();
       }
       else{
-        die ("nicht ok");
+        header('Location: /user/create?error=1');
       }
     }
 
