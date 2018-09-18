@@ -25,6 +25,32 @@ input[type=text], input[type=password] {
   color: red;
 }
 
+.oben{
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 /* Set a style for all buttons */
 button {
     background-color: #6DD5FF;
@@ -55,7 +81,7 @@ button:hover {
 
 .topcorner{
   margin-right: 50px;
-  margin-top: 20px;
+  margin-top: 50px;
   position:absolute;
   top:0;
   right:0;
@@ -78,6 +104,8 @@ button:hover {
 }
 
 .textfeld{
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: auto;
   margin-top: 20px;
   padding: 16px;

@@ -21,6 +21,12 @@
     <![endif]-->
   </head>
   <body>
+    <div class="oben">
+      <ul>
+        <li><a href="/">Login</a></li>
+        <li><a href="/user/impressum">Impressum</a></li>
+      </ul>
+    </div>
     <div class="mitte">
       <h1>Notebook</h1>
     </div>

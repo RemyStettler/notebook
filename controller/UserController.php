@@ -46,4 +46,12 @@ class UserController
         session_destroy();
         header('Location: /');
     }
+
+    public function impressum()
+    {
+      $view = new View('impressum');
+      $view->title = 'Impressum';
+      $view->heading = 'Impressum';
+      $view->display();
+    }
 }
