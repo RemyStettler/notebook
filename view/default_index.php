@@ -3,7 +3,7 @@
 </div>
 <form action="/user/anmelden" method="post">
 
-	<div id="logincontainer">
+	<div class="formcontainer">
 		<label for="benutzername"><b>Benutzername</b></label>
 		<input type="text" placeholder="Enter Username" name="benutzername" required>
 
@@ -13,9 +13,40 @@
 		<button name="Anmelden" type="submit">Login</button>
 
 		<?php
-			if(isset($_GET['error']) == true)
+			if(isset($_GET['error1']) == true)
 			{
-				echo "<p>Your Password or Username is invalid.<p>";
+				echo "<p class=\"error\">Your Password or Username is invalid.<p>";
+			}
+		 ?>
+	</div>
+</form>
+
+<div class="mitte">
+	<h2>Passwort wechseln</h2>
+</div>
+
+<form action="/user/passwortwechseln" method="post">
+
+	<div class="formcontainer">
+		<label for="resetbenutzername"><b>Benutzername</b></label>
+		<input type="text" placeholder="Enter Username" name="resetbenutzername" required>
+
+		<label for="oldpasswort"><b>Aktives Passwort</b></label>
+		<input type="password" placeholder="Enter Password" name="oldpassword" required>
+
+		<label for="newpasswort"><b>Neues Passwort</b></label>
+		<input type="password" placeholder="Enter new Password" name="newpassword" required>
+
+		<button name="wechseln" type="submit">Passwort wechseln</button>
+
+		<?php
+			if(isset($_GET['success']) == true)
+			{
+				echo "<p class=\"success\">Successful change.";
+			}
+			if(isset($_GET['error2']) == true)
+			{
+				echo "<p class=\"error\">Your Password or Username is invalid.<p>";
 			}
 		 ?>
 	</div>

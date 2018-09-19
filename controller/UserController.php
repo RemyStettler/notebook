@@ -5,6 +5,7 @@
  */
 require_once '../lib/login-check.php';
 require_once '../repository/NotizRepository.php';
+require_once '../lib/change-check.php';
 
 class UserController
 {
@@ -37,7 +38,20 @@ class UserController
         $view->display();
       }
       else{
-        header('Location: /user/create?error=1');
+        header('Location: /user/create?error1=1');
+      }
+    }
+
+    public function passwortwechseln()
+    {
+      $change = new ChangeCheck();
+      if($change->change())
+      {
+        header('Location: /?success=1');
+      }
+      else
+      {
+        header('Location: /?error2=1');
       }
     }
 

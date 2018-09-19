@@ -26,7 +26,7 @@
   <body>
     <div class="oben">
       <ul>
-        <li><a href="/">Login</a></li>
+        <li><a href="/">Login / Change Password</a></li>
         <li><a href="/user/impressum">Impressum</a></li>
       </ul>
     </div>

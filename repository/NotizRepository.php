@@ -50,7 +50,7 @@ class NotizRepository extends Repository
 
             $benutzername = $_SESSION['benutzername'];
             //Dies ist das SQL Statement, dass die Datensätze aus der Datenbank lesen.
-            $query = "SELECT notiz FROM $this->tableName WHERE benutzername = ?";
+            $query = "SELECT id, notiz FROM $this->tableName WHERE benutzername = ?";
 
              //Stellt Verbindung zur Datenbank her.
             $statement = ConnectionHandler::getConnection()->prepare($query);
