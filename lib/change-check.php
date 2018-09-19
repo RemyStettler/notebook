@@ -21,31 +21,33 @@ class ChangeCheck
         $connection->set_charset("utf8");
 
         //Dies ist die SQL Abfrage, die die eingegebenen Benutzerdaten und die bestehenden Benutzerdaten vergleicht.
-        $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ? AND password = ?";
+        $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ?";
 
         //htmlentities schützt vor jeglichen Angriffen.
         $benutzername = htmlentities($_POST ['resetbenutzername']);
-        $password = htmlentities(sha1($_POST ['oldpassword']));
-
 
         $statement = $connection->prepare($query);
-        // var_dump($statement);die;
-        $statement->bind_param("ss", $benutzername, $password);
+        $statement->bind_param("s", $benutzername);
         $statement->execute();
         $result = $statement->get_result();
 
         //Wenn es in der Abfrage eine übereinstimmende Eingabe hat, wird man eingeloggt.
         if($result->num_rows == 1)
         {
-          $query = "UPDATE user SET password = ? WHERE benutzername = ?";
+          session_start();
+          $row = $result->fetch_object();
+          if(password_verify($_POST['oldpassword'], $row->password)) {
+            $query = "UPDATE user SET password = ? WHERE benutzername = ?";
 
-          $password = htmlentities(sha1($_POST['newpassword']));
+            $password = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
 
-          $statement = $connection->prepare($query);
+            $statement = $connection->prepare($query);
 
-          $statement->bind_param("ss", $password, $benutzername);
-          $statement->execute();
+            $statement->bind_param("ss", $password, $benutzername);
+            $statement->execute();
             return true;
+
+          }
         }
         else
         {

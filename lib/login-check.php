@@ -21,14 +21,13 @@ class LoginCheck
         $connection->set_charset("utf8");
 
         //Dies ist die SQL Abfrage, die die eingegebenen Benutzerdaten und die bestehenden Benutzerdaten vergleicht.
-        $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ? AND password = ?";
+        $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ?";
 
         //htmlentities schützt vor jeglichen Angriffen.
         $benutzername = htmlentities($_POST ['benutzername']);
-        $password = htmlentities(sha1($_POST ['password']));
 
         $statement = $connection->prepare($query);
-        $statement->bind_param("ss", $benutzername, $password);
+        $statement->bind_param("s", $benutzername);
         $statement->execute();
         $result = $statement->get_result();
 
@@ -37,6 +36,10 @@ class LoginCheck
         {
             session_start();
             $row = $result->fetch_object();
+            if(!password_verify($_POST['password'], $row->password)) {
+              return false;
+            }
+
             $_SESSION['benutzername'] = $benutzername;
             $_SESSION['loggedin'] = true;
             return true;
