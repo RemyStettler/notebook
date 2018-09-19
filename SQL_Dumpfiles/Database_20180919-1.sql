@@ -29,7 +29,7 @@ CREATE TABLE `notizen` (
   `benutzername` varchar(50) NOT NULL,
   `notiz` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `notizen` (
 
 LOCK TABLES `notizen` WRITE;
 /*!40000 ALTER TABLE `notizen` DISABLE KEYS */;
-INSERT INTO `notizen` VALUES (59,'remy','dgdfgdfg'),(60,'remy','fghfghfgh'),(61,'remy','fghfghfgh'),(62,'remy','fghfghfgh'),(63,'remy','fghfghfgh'),(64,'remy','fghfghfgh'),(65,'remy','fghfghfg'),(66,'remy','jjjjjjjjjjjjj'),(67,'remy','jjjjjjjjjjjjjjjjjjjjjj'),(68,'remy','adada'),(69,'remy','asdadas'),(70,'remy','asdaff'),(71,'remy','dfgdfgdfg'),(72,'remy','bnvbnvcbn'),(73,'remy','sdfgdsfgsdfg'),(74,'remy','xcvbxcvbdftgsdyg'),(75,'remy','ydfgbfbhydfhbfgjsj'),(76,'remy','sdgsdghdsfg'),(77,'raffaele','sdfasdf');
+INSERT INTO `notizen` VALUES (77,'raffaele','sdfasdf'),(145,'publicuser','Public User - Für Tests'),(154,'raffaele','raffaele'),(156,'remy','remy'),(157,'remy','we');
 /*!40000 ALTER TABLE `notizen` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'remy','40bd001563085fc35165329ea1ff5c5ecbdbbeef'),(2,'raffaele','40bd001563085fc35165329ea1ff5c5ecbdbbeef'),(3,'publicuser','40bd001563085fc35165329ea1ff5c5ecbdbbeef');
+INSERT INTO `user` VALUES (1,'remy','$2y$10$UtNjSKLHyEg/LQBG/dr1ueWzlPI3JMLUjYFy52BPOfM7B9Mf1sIeW'),(2,'raffaele','$2y$10$qz1cvW03frXKm7dITj9sgeJ43lJ.HWrC8Iu7E38xfyNPoNbxKMyFO'),(3,'publicuser','$2y$10$vBQCLa7ukuwiqjgNSNA5JedPboGZPe.lz6eCoEEhF7Mq99UFcVuQ.');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -76,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-18 12:34:36
+-- Dump completed on 2018-09-19 12:30:49
