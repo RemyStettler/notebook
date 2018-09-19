@@ -23,9 +23,9 @@ class ChangeCheck
         //Dies ist die SQL Abfrage, die die eingegebenen Benutzerdaten und die bestehenden Benutzerdaten vergleicht.
         $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ? AND password = ?";
 
-        //htmlspecialchars schützt vor jeglichen Angriffen.
-        $benutzername = htmlspecialchars($_POST ['resetbenutzername']);
-        $password = htmlspecialchars(sha1($_POST ['oldpassword']));
+        //htmlentities schützt vor jeglichen Angriffen.
+        $benutzername = htmlentities($_POST ['resetbenutzername']);
+        $password = htmlentities(sha1($_POST ['oldpassword']));
 
 
         $statement = $connection->prepare($query);
@@ -39,7 +39,7 @@ class ChangeCheck
         {
           $query = "UPDATE user SET password = ? WHERE benutzername = ?";
 
-          $password = htmlspecialchars(sha1($_POST['newpassword']));
+          $password = htmlentities(sha1($_POST['newpassword']));
 
           $statement = $connection->prepare($query);
 

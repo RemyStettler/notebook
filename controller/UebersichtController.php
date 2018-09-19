@@ -19,7 +19,7 @@ require_once '../repository/NotizRepository.php';
     {
       session_start();
       $notiz = new NotizRepository();
-      $notiz->insert(htmlspecialchars($_POST['text'])); //Führt die Speicherung der Datensätze durch.
+      $notiz->insert(htmlentities($_POST['text'])); //Führt die Speicherung der Datensätze durch.
 
       header('Location: /uebersicht');
     }

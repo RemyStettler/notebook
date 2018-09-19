@@ -23,9 +23,9 @@ class LoginCheck
         //Dies ist die SQL Abfrage, die die eingegebenen Benutzerdaten und die bestehenden Benutzerdaten vergleicht.
         $query = "SELECT id, benutzername, password FROM user WHERE benutzername = ? AND password = ?";
 
-        //htmlspecialchars schützt vor jeglichen Angriffen.
-        $benutzername = htmlspecialchars($_POST ['benutzername']);
-        $password = htmlspecialchars(sha1($_POST ['password']));
+        //htmlentities schützt vor jeglichen Angriffen.
+        $benutzername = htmlentities($_POST ['benutzername']);
+        $password = htmlentities(sha1($_POST ['password']));
 
         $statement = $connection->prepare($query);
         $statement->bind_param("ss", $benutzername, $password);

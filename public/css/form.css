@@ -25,7 +25,7 @@ input[type=text], input[type=password] {
   color: red;
 }
 
-/* Set a style for all buttons */
+/* Style für alle buttons */
 button {
     background-color: #6DD5FF;
     color: black;
@@ -37,18 +37,18 @@ button {
     transition: all .2s ease-in-out;
 }
 
-/* Add a hover effect for buttons */
+/* Effekt für button wenn darüber */
 button:hover {
   transform: scale(1.1);
 }
 
-/* Center the avatar image inside this container */
+/* Inhalte in diesem Container zentrieren */
 .überschrift {
     text-align: center;
     margin: 24px 0 12px 0;
 }
 
-/* Add padding to containers */
+/* Padding für containers */
 .container {
     padding: 16px;
 }
@@ -68,21 +68,4 @@ button:hover {
 
 .success{
   color: green;
-}
-
-/* The "Forgot password" text */
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
 }
