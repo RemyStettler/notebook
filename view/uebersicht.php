@@ -6,7 +6,7 @@
 
 <form action="/uebersicht/speichern" method="post">
   <div class="textfeld">
-    <label for="text"><b>Neue Notiz (max. 1000 Zeichen):<b></label>
+    <label><b>Neue Notiz (max. 1000 Zeichen):<b></label>
       <textarea required class="notizfeld" name="text" rows="8" cols="80" placeholder="Write something..."></textarea>
 
       <button type="submit" name="Speichern">Speichern</button>
@@ -15,7 +15,7 @@
 
   <form action="/uebersicht/loeschen" method="post">
     <div class="textfeld">
-      <label for="erstelltenotizen"><b>Erstellte Notizen:<b></label>
+      <label><b>Erstellte Notizen:<b></label>
         <table>
           <?php
             foreach ($allenotizen as $notiz)
@@ -29,6 +29,6 @@
             }
            ?>
         </table>
-          <button type="submit" name="Löschen">Alle Notizen Löschen</button>
+      <button type="submit" name="Löschen">Alle Notizen Löschen</button>
     </div>
   </form>

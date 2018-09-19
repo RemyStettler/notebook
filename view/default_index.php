@@ -4,10 +4,10 @@
 <form action="/user/anmelden" method="post">
 
 	<div class="formcontainer">
-		<label for="benutzername"><b>Benutzername</b></label>
+		<label><b>Benutzername</b></label>
 		<input type="text" placeholder="Enter Username" name="benutzername" required>
 
-		<label for="passwort"><b>Passwort</b></label>
+		<label><b>Passwort</b></label>
 		<input type="password" placeholder="Enter Password" name="password" required>
 
 		<button name="Anmelden" type="submit">Login</button>
@@ -28,13 +28,13 @@
 <form action="/user/passwortwechseln" method="post">
 
 	<div class="formcontainer">
-		<label for="resetbenutzername"><b>Benutzername</b></label>
+		<label><b>Benutzername</b></label>
 		<input type="text" placeholder="Enter Username" name="resetbenutzername" required>
 
-		<label for="oldpasswort"><b>Aktives Passwort</b></label>
+		<label><b>Aktives Passwort</b></label>
 		<input type="password" placeholder="Enter Password" name="oldpassword" required>
 
-		<label for="newpasswort"><b>Neues Passwort</b></label>
+		<label><b>Neues Passwort</b></label>
 		<input type="password" placeholder="Enter new Password" name="newpassword" required>
 
 		<button name="wechseln" type="submit">Passwort wechseln</button>

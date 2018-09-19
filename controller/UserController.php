@@ -44,6 +44,7 @@ class UserController
 
     public function passwortwechseln()
     {
+      //In dieser Methode wird das Passwort
       $change = new ChangeCheck();
       if($change->change())
       {
